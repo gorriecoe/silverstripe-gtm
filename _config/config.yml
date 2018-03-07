@@ -1,0 +1,6 @@
+---
+Name: gtmconfig
+---
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - gorriecoe\GTM\Extensions\GTMConfig
