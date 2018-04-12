@@ -1,0 +1,3 @@
+mappings:
+  GTMConfig: gorriecoe\GTM\Extensions\GTMConfig
+  GTMTemplateProvider: gorriecoe\GTM\View\GTMTemplateProvider
