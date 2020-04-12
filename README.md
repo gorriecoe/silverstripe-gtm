@@ -15,6 +15,16 @@ composer require gorriecoe/silverstripe-gtm
 
 - [Gorrie Coe](https://github.com/gorriecoe)
 
+## Config
+
+GTM will check if your `.env` file has defined `GTM_ID` first.  As follows:
+
+```
+GTM_ID="GTM-123456"
+```
+
+If GTM_ID has not been defined you can edit it in your CMS settings.
+
 ## Usage
 Insert `$GTMscript` after the opening head tag and `$GTMnoscript` after the opening body tag.
 ```

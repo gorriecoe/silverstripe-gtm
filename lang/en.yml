@@ -1,3 +1,4 @@
 en:
   gorriecoe\GTM\Extensions\GTMConfig:
     ID: 'Tag manager ID'
+    IDEQUALS: 'The current tag manager ID is {GTM_ID}'

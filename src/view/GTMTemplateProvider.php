@@ -5,6 +5,7 @@ namespace gorriecoe\GTM\View;
 use SilverStripe\View\TemplateGlobalProvider;
 use SilverStripe\View\ArrayData;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Core\Environment;
 
 /**
  * Adds tag methods to templates
@@ -14,22 +15,35 @@ use SilverStripe\SiteConfig\SiteConfig;
 class GTMTemplateProvider implements TemplateGlobalProvider
 {
     /**
-     * @return array|void
+     * @return Array|Void
      */
     public static function get_template_global_variables()
     {
         return [
+            'GTM_ID' => 'GTM_ID',
             'GTMscript' => 'GTMscript',
             'GTMnoscript' => 'GTMnoscript'
         ];
     }
 
     /**
-     * @return HTML|null
+     * Get the GTM Id via .Env or Siteconfig.
+     * @return String|Null
+     */
+    public static function GTM_ID()
+    {
+        if (!$gtm = Environment::getEnv('GTM_ID')) {
+            $gtm = SiteConfig::current_site_config()->GoogleTagManager;
+        }
+        return $gtm;
+    }
+
+    /**
+     * @return HTML|Null
      */
     public static function GTMscript()
     {
-        if ($gtm = SiteConfig::current_site_config()->GoogleTagManager) {
+        if ($gtm = self::GTM_ID()) {
             return ArrayData::create([
                 'GTM' => $gtm
             ])->renderWith('GTMscript');
@@ -37,11 +51,11 @@ class GTMTemplateProvider implements TemplateGlobalProvider
     }
 
     /**
-     * @return HTML|null
+     * @return HTML|Null
      */
     public static function GTMnoscript()
     {
-        if ($gtm = SiteConfig::current_site_config()->GoogleTagManager) {
+        if ($gtm = self::GTM_ID()) {
             return ArrayData::create([
                 'GTM' => $gtm
             ])->renderWith('GTMnoscript');
