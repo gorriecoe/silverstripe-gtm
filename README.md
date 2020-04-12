@@ -25,6 +25,15 @@ GTM_ID="GTM-123456"
 
 If GTM_ID has not been defined you can edit it in your CMS settings.
 
+## Options
+
+Define the tab to insert the gtm field into.
+
+```yml
+SilverStripe\SiteConfig\SiteConfig:
+  gtm_tab: 'SomeTabName' // Defaults to 'Main'
+```
+
 ## Usage
 Insert `$GTMscript` after the opening head tag and `$GTMnoscript` after the opening body tag.
 ```
