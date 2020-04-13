@@ -9,7 +9,7 @@ composer require gorriecoe/silverstripe-gtm
 
 ## Requirements
 
-- silverstripe/cms ^4.0
+- silverstripe/cmframework ^4.0
 
 ## Maintainers
 
@@ -49,3 +49,7 @@ Insert `$GTMscript` after the opening head tag and `$GTMnoscript` after the open
 </body>
 </html>
 ```
+
+## [CSP - Content Security Policy](https://developers.google.com/tag-manager/web/csp)
+
+GTM checks for `getNonce()` method in the current controller.  If its avaiable it will produce a CSP compatible snippet.  This means GTM is compatable with [csp-headers](https://github.com/Firesphere/silverstripe-csp-headers)
