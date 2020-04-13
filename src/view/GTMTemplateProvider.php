@@ -6,6 +6,7 @@ use SilverStripe\View\TemplateGlobalProvider;
 use SilverStripe\View\ArrayData;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Core\Environment;
+use SilverStripe\Control\Controller;
 
 /**
  * Adds tag methods to templates
@@ -44,9 +45,19 @@ class GTMTemplateProvider implements TemplateGlobalProvider
     public static function GTMscript()
     {
         if ($gtm = self::GTM_ID()) {
-            return ArrayData::create([
-                'GTM' => $gtm
-            ])->renderWith('GTMscript');
+            $controller = Controller::curr();
+            $nonce = $controller->hasMethod('getNonce') ? $controller->getNonce() : Null;
+            if ($nonce) {
+                return ArrayData::create([
+                    'GTM' => $gtm,
+                    'NONCE' => $nonce
+                ])->renderWith('GTMscript_Nonce');
+            } else {
+                return ArrayData::create([
+                    'GTM' => $gtm
+                ])->renderWith('GTMscript');
+            }
+
         }
     }
 
