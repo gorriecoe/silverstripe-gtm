@@ -1,5 +1,7 @@
 ---
 Name: gtmconfig
+Only:
+  moduleexists: 'silverstripe/siteconfig'
 ---
 SilverStripe\SiteConfig\SiteConfig:
   extensions:

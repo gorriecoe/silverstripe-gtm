@@ -11,13 +11,14 @@
   ],
   "keywords": [
     "silverstripe",
+    "google tag manager",
     "google",
     "gtm",
     "tag"
   ],
   "homepage": "http://github.com/gorriecoe/silverstripe-gtm",
   "require": {
-    "silverstripe/siteconfig": "^4.0"
+    "silverstripe/framework": "^4.0"
   },
   "extra": {
     "installer-name": "gtm"
