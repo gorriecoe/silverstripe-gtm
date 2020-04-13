@@ -52,4 +52,6 @@ Insert `$GTMscript` after the opening head tag and `$GTMnoscript` after the open
 
 ## [CSP - Content Security Policy](https://developers.google.com/tag-manager/web/csp)
 
-GTM checks for `getNonce()` method in the current controller.  If its avaiable it will produce a CSP compatible snippet.  This means GTM is compatable with [csp-headers](https://github.com/Firesphere/silverstripe-csp-headers)
+GTM checks for `getNonce()` method in the current controller.  If its avaiable it will produce a CSP compatible snippet.
+
+This means GTM is works with [Firesphere/csp-headers](https://github.com/Firesphere/silverstripe-csp-headers)
